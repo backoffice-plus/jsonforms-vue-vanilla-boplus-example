@@ -1,0 +1,20 @@
+{
+  "name": "jsonforms-vue-vanilla-boplus-example",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@backoffice-plus/jsonforms-vue-vanilla": "^0.0.13",
+    "vue": "^3.4.15"
+  },
+  "devDependencies": {
+    "@jsonforms/vue-vanilla": "^3.2.1",
+    "@vitejs/plugin-vue": "^5.0.3",
+    "vite": "^5.0.11"
+  }
+}
