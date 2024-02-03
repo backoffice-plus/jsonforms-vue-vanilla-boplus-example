@@ -44,7 +44,7 @@
     <div>
       <details>
         <summary>Schema & Ui Schema</summary>
-        <textarea readonly disabled>{{jfDefault}}</textarea>
+        <textarea readonly disabled>{{jf}}</textarea>
       </details>
     </div>
   </section>
@@ -133,8 +133,6 @@ import {vanillaRenderers} from "@jsonforms/vue-vanilla";
 import boplusVueVanillaRenderers from "@backoffice-plus/jsonforms-vue-vanilla";
 import jf from "./default.forms.json";
 import "@backoffice-plus/jsonforms-vue-vanilla/lib/bundle.css"
-
-console.log({vanillaRenderers});
 
 const renderers:MaybeReadonly<JsonFormsRendererRegistryEntry[]> = Object.freeze([
   ...vanillaRenderers,
