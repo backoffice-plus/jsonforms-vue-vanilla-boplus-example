@@ -1,11 +1,21 @@
 <template>
 
-  <h1 style="text-align: center">JSON Forms Vue Vanilla Renderer by backoffice.plus</h1>
+  <header>
+
+    <h1>JSON Forms Vue Vanilla Renderer by backoffice.plus</h1>
+
+    <a href="https://github.com/backoffice-plus/jsonforms-vue-vanilla-boplus" target="_blank">
+        <img src="https://github.com/fluidicon.png" alt="GitHub Logo">
+        GitHub Repository
+      </a>
+
+  </header>
+
 
   <section>
 
     <article class="withoutBo">
-      <h2>Jsonforms Vue Vanilla</h2>
+      <h2>Jsonforms Vue Vanilla (v3.2.1)</h2>
       <JsonForms
           :schema="jf.schema"
           :uischema="jf.uischema"
@@ -43,6 +53,21 @@
 
 
 <style scoped>
+header {
+  text-align: center;
+  padding:2rem;
+}
+
+header > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header > a > img {
+  height:36px
+}
+
 section {
   display: grid;
   grid-template-columns: minmax(20px,1fr) minmax(300px,40%) minmax(300px,40%) minmax(20px,1fr);
@@ -88,6 +113,9 @@ details textarea {
 fieldset.group {
   min-height:150px;
   margin-bottom:20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 button.array-list-item-delete:empty:after {
   content:" 🗙 "
