@@ -22,6 +22,18 @@
         "maximum": 100,
         "default": 50
       },
+      "nameOrFalse": {
+        "type": ["string", "boolean"]
+      },
+      "time": {
+        "type": "string",
+        "format": "time"
+      },
+      "dateTime": {
+        "type": "string",
+        "format": "date-time"
+      },
+
       "colors": {
         "type": "array",
         "uniqueItems": true,
@@ -30,6 +42,30 @@
             "red",
             "blue",
             "green"
+          ],
+          "type": "string"
+        }
+      },
+      "colorsArrayOneOf": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "oneOf": [
+            {"const": "red", "title": "Red Color"},
+            {"const": "blue", "title": "Blue Color"},
+            {"const": "green", "title": "Green Color"}
+          ]
+        }
+      },
+
+      "fruits": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "apple",
+            "peach",
+            "orange",
+            "banana"
           ],
           "type": "string"
         }
@@ -43,7 +79,7 @@
           "green"
         ]
       },
-      "colorsWithOneOf": {
+      "colorWithOneOf": {
         "oneOf": [
           {"const": "red", "title": "Red Color"},
           {"const": "blue", "title": "Blue Color"},
@@ -62,6 +98,7 @@
       "twelf": {
         "const": 12
       },
+
       "textitems": {
         "type": "array",
         "items": {
@@ -167,9 +204,30 @@
           {
             "type": "Control",
             "scope": "#/properties/password"
+          },
+          {
+            "type": "Control",
+            "scope": "#/properties/dateTime",
+            "label": "DateTime (fix: click outside after selecting a date)"
+          },
+          {
+            "type": "Control",
+            "scope": "#/properties/time",
+            "label": "Time (fix: click outside after selecting a date)"
           }
         ],
         "label": "Inputs"
+      },
+
+      {
+        "label": "Control with multiple types",
+        "type": "Group",
+        "elements": [
+          {
+            "type": "Control",
+            "scope": "#/properties/nameOrFalse"
+          }
+        ]
       },
 
 
@@ -179,6 +237,7 @@
       },
 
       {
+        "label": "Enum as Radio",
         "type": "Group",
         "elements": [
           {
@@ -188,21 +247,11 @@
               "format": "radio"
             }
           }
-        ],
-        "label": "Enum as Radio"
-      },
-      {
-        "type": "Group",
-        "elements": [
-          {
-            "type": "Control",
-            "scope": "#/properties/colors"
-          }
-        ],
-        "label": "Enum as Checkboxes"
+        ]
       },
 
       {
+        "label": "Enum with autocompletion",
         "type": "Group",
         "elements": [
           {
@@ -212,10 +261,30 @@
               "autocomplete": true
             }
           }
-        ],
-        "label": "Enum  with autocompletion"
+        ]
       },
 
+      {
+        "label": "Array of Enum, uniqueItems",
+        "type": "Group",
+        "elements": [
+          {
+            "type": "Control",
+            "scope": "#/properties/colors"
+          }
+        ]
+      },
+
+      {
+        "label": "Array of oneOf, uniqueItems",
+        "type": "Group",
+        "elements": [
+          {
+            "type": "Control",
+            "scope": "#/properties/colorsArrayOneOf"
+          }
+        ]
+      },
 
       {
         "type": "Group",
@@ -230,6 +299,17 @@
           }
         ],
         "label": "Const"
+      },
+
+      {
+        "type": "Group",
+        "elements": [
+          {
+            "type": "Control",
+            "scope": "#/properties/fruits"
+          }
+        ],
+        "label": "Array"
       },
 
       {
@@ -375,12 +455,13 @@
         "label": "Stepper Variant"
       },
 
+
       {
         "type": "Group",
         "elements": [
           {
             "type": "Control",
-            "scope": "#/properties/colorsWithOneOf",
+            "scope": "#/properties/colorWithOneOf",
             "options": {
               "format": "radio"
             }
@@ -395,7 +476,7 @@
         "elements": [
           {
             "type": "Control",
-            "scope": "#/properties/colorsWithOneOf",
+            "scope": "#/properties/colorWithOneOf",
             "options": {
               "autocomplete": true
             }
